@@ -1,0 +1,22 @@
+# Dependencies - installed fresh inside the image, never copied
+node_modules
+npm-debug.log
+
+# Environment - secrets never go in the image
+.env
+.env.local
+.env.*.local
+
+# Version control
+.git
+.gitignore
+
+# IDE / OS
+.vscode
+.idea
+*.swp
+.DS_Store
+
+# Docker files themselves
+Dockerfile
+.dockerignore
