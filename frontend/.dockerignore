@@ -1,0 +1,14 @@
+node_modules
+npm-debug.log
+build
+.env
+.env.local
+.env.*.local
+.git
+.gitignore
+.vscode
+.idea
+*.swp
+.DS_Store
+Dockerfile
+.dockerignore
