@@ -26,12 +26,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: set lowercase for repository owner
+        run: echo "OWNER_LC=${GITHUB_REPOSITORY_OWNER,,}" >> "$GITHUB_ENV"
       - name: Build and push backend image
         run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/3tier-backend:latest ./backend
-          docker push ghcr.io/${{ github.repository_owner }}/3tier-backend:latest
+          docker build -t ghcr.io/${OWNER_LC}/3tier-backend:latest ./backend
+          docker push ghcr.io/${OWNER_LC}/3tier-backend:latest
 
       - name: Build and push frontend image
         run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/3tier-frontend:latest ./frontend
-          docker push ghcr.io/${{ github.repository_owner }}/3tier-frontend:latest
+          docker build -t ghcr.io/${OWNER_LC}/3tier-frontend:latest ./frontend
+          docker push ghcr.io/${OWNER_LC}/3tier-frontend:latest
